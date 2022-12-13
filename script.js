@@ -5,6 +5,7 @@ const todoList=document.getElementById("todoList");
 //push data from input to LS
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    if(input.value){
     const newTodos = [input.value,0];
     input.value="";
     let LS = JSON.parse(localStorage.getItem("todos"));
@@ -13,6 +14,7 @@ form.addEventListener("submit", (e) => {
         : JSON.stringify([...LS, newTodos]);
     localStorage.setItem("todos", LS)
     fetchLS(JSON.parse(LS));
+    }
 });
 
 //add cards to screen
